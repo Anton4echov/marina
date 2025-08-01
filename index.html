@@ -305,34 +305,66 @@ body::before {
       <p>Вс: 10:00 - 18:00</p>
     </section>
 
-<div class="brands-section">
-  <h2>Наши бренды</h2>
+<div class="brands-section"><section class="brands-section" aria-label="Белорусские бренды одежды в Йошкар-Оле">
+  <h2 class="section-title">Брендовая белорусская одежда в Йошкар-Оле</h2>
+  
   <div class="brands-grid">
-    <div class="brand-item">
-      <img src="bu.png" alt="BURVIN" class="brand-logo">
+    <!-- BURVIN -->
+    <div class="brand-item" itemscope itemtype="https://schema.org/Brand">
+      <img src="bu.png" 
+           alt="BURVIN - белорусская брендовая одежда в Йошкар-Оле" 
+           class="brand-logo"
+           itemprop="logo"
+           width="200"
+           height="100"
+           loading="lazy">
+      <meta itemprop="name" content="BURVIN">
+      <p class="visually-hidden">Брендовая одежда BURVIN из Беларуси в магазине Марина, Йошкар-Ола</p>
     </div>
-    <div class="brand-item">
-      <img src="la.png" alt="LAKBI" class="brand-logo">
+    
+    <!-- LAKBI -->
+    <div class="brand-item" itemscope itemtype="https://schema.org/Brand">
+      <img src="la.png" 
+           alt="LAKBI - белорусская женская одежда в Йошкар-Оле" 
+           class="brand-logo"
+           itemprop="logo"
+           width="200"
+           height="100"
+           loading="lazy">
+      <meta itemprop="name" content="LAKBI">
+      <p class="visually-hidden">Купить одежду LAKBI из Беларуси в Йошкар-Оле</p>
     </div>
-    <div class="brand-item">
-      <img src="ba.png" alt="BALUNOVA" class="brand-logo">
+    
+    <!-- BALUNOVA -->
+    <div class="brand-item" itemscope itemtype="https://schema.org/Brand">
+      <img src="ba.png" 
+           alt="BALUNOVA - белорусские бренды в ТЦ 21 век Йошкар-Ола" 
+           class="brand-logo"
+           itemprop="logo"
+           width="200"
+           height="100"
+           loading="lazy">
+      <meta itemprop="name" content="BALUNOVA">
+      <p class="visually-hidden">Белорусская одежда BALUNOVA в торговом центре 21 век</p>
     </div>
   </div>
-</div>
+  
+  <p class="brands-description">Магазин "Марина" в ТЦ "21 век" - официальный представитель белорусских брендов BURVIN, LAKBI и BALUNOVA в Йошкар-Оле. У нас вы найдёте качественную брендовую одежду из натуральных тканей.</p>
+</section>
 
 <style>
   .brands-section {
-    max-width: 1000px;
+    max-width: 1200px;
+    margin: 40px auto;
     padding: 20px;
-    margin: 30px auto;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Stronger shadow */
-    border-radius: 8px;
+      border-radius: 8px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+    font-family: 'Arial', sans-serif;
   }
   
-  .brands-section h2 {
+  .section-title {
     color: #2a5885;
+    text-align: center;
     margin-bottom: 30px;
     font-size: 28px;
   }
@@ -341,13 +373,16 @@ body::before {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 40px;
+    margin-bottom: 30px;
   }
   
   .brand-item {
     flex: 1;
     min-width: 200px;
     max-width: 250px;
+    text-align: center;
+    position: relative;
   }
   
   .brand-logo {
@@ -355,30 +390,41 @@ body::before {
     height: auto;
     max-height: 120px;
     object-fit: contain;
-    margin-bottom: 15px;
-    filter: grayscale(0%);
-    transition: filter 0.3s ease;
+    transition: transform 0.3s ease;
   }
   
-  .brand-item:hover .brand-logo {
-    filter: grayscale(0%) brightness(1.05);
+  .brand-logo:hover {
+    transform: scale(1.05);
   }
   
-  .brand-item p {
-    font-weight: bold;
-    color: #333;
-    font-size: 18px;
-    margin-top: 10px;
+  .brands-description {
+    text-align: center;
+    color: #444;
+    line-height: 1.6;
+    font-size: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
   }
   
   @media (max-width: 768px) {
     .brands-grid {
       flex-direction: column;
       align-items: center;
+      gap: 30px;
     }
-    .brand-item {
-      width: 80%;
-      margin-bottom: 20px;
+    .section-title {
+      font-size: 24px;
     }
   }
 </style>
