@@ -155,6 +155,74 @@
         font-size: 1.5rem;
       }
     }
+
+    .floating-buttons {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 999;
+    }
+    
+    .floating-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .floating-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    
+    .floating-btn i {
+      margin-right: 8px;
+      font-size: 1.1rem;
+    }
+    
+    .floating-btn.home {
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+    }
+    
+    @media (max-width: 768px) {
+      .floating-buttons {
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      .floating-btn {
+        padding: 12px 15px;
+        font-size: 0.8rem;
+      }
+      
+      .floating-btn i {
+        margin-right: 5px;
+      }
+      
+      .floating-btn span {
+        display: none;
+      }
+      
+      .floating-btn::after {
+        content: attr(data-short);
+        display: inline;
+      }
+    }
+    
   </style>
 </head>
 <body>
@@ -247,6 +315,37 @@
       <p>Для жителей других городов: мы осуществляем доставку одежды LAKBI по всей России. Вы можете сделать заказ онлайн или по телефону, и мы отправим ваш заказ удобной транспортной компанией с примеркой перед оплатой.</p>
     </div>
   </div>
+
+  <div class="floating-buttons">
+    <a href="tel:+79277245952" class="floating-btn" data-short="Позвонить">
+      <i class="fas fa-phone-alt"></i>
+      <span>+7 (927) 724-59-52</span>
+    </a>
+    <a href="https://marina-21-vek.onrender.com/" class="floating-btn home" data-short="На главную">
+      <i class="fas fa-home"></i>
+      <span>На главную</span>
+    </a>
+  </div>
+
+  <!-- Previous footer and scripts remain unchanged -->
+  
+  <script>
+    // Previous structured data remains unchanged
+    
+    // Add click tracking for buttons (optional)
+    document.querySelectorAll('.floating-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        if(typeof gtag !== 'undefined') {
+          gtag('event', 'click', {
+            'event_category': 'Floating Button',
+            'event_label': this.textContent.trim()
+          });
+        }
+      });
+    });
+  </script>
+
+
   
   <footer>
     <p>© 2024 Салон белорусской одежды "Марина" в ТЦ "21 век", Йошкар-Ола</p>
